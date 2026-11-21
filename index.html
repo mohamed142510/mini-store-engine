@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ziko Store</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assests/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar rounded-pill">
+      <div class="container justify-content-between align-items-center">
+        <a class="navbar-brand" href="#home">ZIKO STORE</a>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Prodacts</a>
+          </li>
+          <li class="nav-item">
+            <a href="#cart" class="nav-link">Cart</a>
+          </li>
+        </ul>
+        <a href="#cart" class="m-0">cart:<span id="cartBadge">0</span></a>
+      </div>
+    </nav>
+
+    <main class="row justify-content-center pt-3 gap-0 hidden" id="home">
+      <header class="my-5 p-3">
+        <div
+          class="filters d-flex gap-3 align-items-center justify-content-center"
+        >
+          <input type="search" id="search" class="input" />
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="all">All</option>
+            <option value="electronics">Electronics</option>
+          </select>
+          <label
+            ><input type="checkbox" id="inStockOnly" class="input me-1" />Only
+            in Stock
+          </label>
+          <input type="number" class="input" id="minPrice" />
+          <input type="number" class="input" id="maxPrice" />
+          <button type="submit" class="btn btn-dark" id="priceFilterSumbitBtn">
+            Submit
+          </button>
+          <button id="resetBtn" class="btn btn-primary">Rest Filters</button>
+        </div>
+      </header>
+      <p id="resultsCount" class="text-center">12 of 12</p>
+
+      <div class="row justify-content-center gap-3 col-12" id="grid"></div>
+    </main>
+
+    <section id="cart" class="pt-5">
+      <div class="container d-flex flex-column">
+        <h3 class="text-center">Shopping Cart</h3>
+        <div>
+          <ul id="cartItems"></ul>
+        </div>
+        <footer id="cartTotal">
+          <p id="subTotal"></p>
+          <p id="count"></p>
+          <button
+            class="btn btn-dark"
+            data-action="clear-cart"
+            id="clearCartBtn"
+          >
+            Clear Cart
+          </button>
+        </footer>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./assests/js/main.js"></script>
+    <script type="module" src="./assests/js/cart.js"></script>
+    <script type="module" src="./assests/js/filters.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+body {
+  overflow-x: hidden;
+}
+
+.input {
+  max-width: 120px;
+  border-radius: 6px;
+  border: black 1px solid;
+}
+
+.not-avalibal {
+  color: #aaaa;
+}
+
+.btn:disabled {
+  cursor: not-allowed !important;
+}
+
+.badge {
+  border-radius: 20px;
+  color: white;  
+  font-weight: 500;
+  margin: 10px;
+  width: 100px;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#cartItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+#cart-section {
+  margin: 50px;
+  height: 100vh;
+}
+
+.navbar {
+  background: #f0f0f0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
