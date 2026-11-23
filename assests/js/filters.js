@@ -71,15 +71,6 @@ const stockSet = function (arr) {
 
 const priceSet = function (arr, min, max) {
   let productsAfterFiltering = [];
-  let minPrice = arr[0].price;
-  let maxPrice = arr[0].price;
-  for (let i = 0; i < arr.length; i++) {
-    if (minPrice > arr[i].price) {
-      minPrice = arr[i].price;
-    } else if (maxPrice < arr[i].price) {
-      maxPrice = arr[i].price;
-    }
-  }
 
   if (max === "") {
     for (let i = 0; i < arr.length; i++) {

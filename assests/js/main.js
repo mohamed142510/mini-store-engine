@@ -18,10 +18,11 @@ import {
   loadCart,
 } from "./cart.js";
 
-import { getRouter } from "./router.js";
+import { handelHashChange } from "./router.js";
 
-const homeSection = document.querySelector("#home");
-const cartSection = document.querySelector("#cart");
+const homeSection = document.querySelector("#homeSection");
+const cartSection = document.querySelector("#cartSection");
+const productSection = document.querySelector("#productSection");
 const grid = document.querySelector("#grid");
 const cartBadge = document.querySelector("#cartBadge");
 const search = document.querySelector("#search");
@@ -36,23 +37,30 @@ const cartItems = document.querySelector("#cartItems");
 const subTotal = document.querySelector("#subTotal");
 const count = document.querySelector("#count");
 const clearCartBtn = document.querySelector("#clearCartBtn");
+const productImg = document.querySelector("#productImg");
+const productName = document.querySelector("#productName");
+const productPrice = document.querySelector("#productPrice");
 
 // init
 
-console.log(renderRouter(getRouter("#product")));
-
 const router = function (hash) {
-  if (hash === "#home" || hash === "" || hash === null) {
-    cartSection.classList.add("hidden");
-    homeSection.classList.remove("hidden");
-  } else if (hash === "#cart") {
-    homeSection.classList.add("hidden");
-    cartSection.classList.remove("hidden");
-  } else if (hash !== "#home" && hash !== "#cart") {
-    location.hash = "#home";
-    cartSection.classList.add("hidden");
-    homeSection.classList.remove("hidden");
+  if (!hash) return;
+
+  const sections = [homeSection, cartSection, productSection];
+  const page = handelHashChange(hash);
+  if (!page) return;
+
+  if (Number(page)) {
+    const exsting = products.find((item) => item.id === page);
+    if (!exsting) return;
+    productImg.src = exsting.img;
+    productName.textContent = exsting.name;
+    productPrice.textContent = `$${exsting.price}`;
+    renderRouter(sections[2].id, sections);
+    return;
   }
+
+  renderRouter(page, sections);
 };
 
 router(window.location.hash);

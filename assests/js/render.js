@@ -8,25 +8,17 @@ const formatNumbers = function (num) {
   });
 };
 
-const renderRouter = function (hash) {
-  if (hash === "home") {
-    // homeSection.classList.remove = "hidden";
-    // cartSection.classList.add = "hidden";
-    return "true";
-  } else if (hash === "cart") {
-    // homeSection.classList.remove = "hidden";
-    // cartSection.classList.add = "hidden";
-    return "true1";
-  } else if (hash === "product") {
-    // homeSection.classList.remove = "hidden";
-    // cartSection.classList.add = "hidden";
-    return "true2";
-  }
-  return "false";
+const renderRouter = function (hash, sections) {
+  sections.forEach((section) => {
+    section.id === hash
+      ? section.classList.remove("hidden")
+      : section.classList.add("hidden");
+  });
 };
 
 const buildProductItem = function (product) {
-  const divCard = document.createElement("div");
+  const divCard = document.createElement("a");
+  divCard.href = `#productSection/${product.id}`;
   divCard.className = "card rounded-5 col-4";
 
   const divImg = document.createElement("div");

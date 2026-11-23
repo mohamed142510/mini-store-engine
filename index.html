@@ -15,20 +15,20 @@
   <body>
     <nav class="navbar rounded-pill">
       <div class="container justify-content-between align-items-center">
-        <a class="navbar-brand" href="#home">ZIKO STORE</a>
+        <a class="navbar-brand" href="#homeSection">ZIKO STORE</a>
         <ul class="nav">
           <li class="nav-item">
-            <a href="#home" class="nav-link">Prodacts</a>
+            <a href="#homeSection" class="nav-link">Prodacts</a>
           </li>
           <li class="nav-item">
-            <a href="#cart" class="nav-link">Cart</a>
+            <a href="#cartSection" class="nav-link">Cart</a>
           </li>
         </ul>
-        <a href="#cart" class="m-0">cart:<span id="cartBadge">0</span></a>
+        <a href="#cartSection" class="m-0">cart:<span id="cartBadge"></span></a>
       </div>
     </nav>
 
-    <main class="row justify-content-center pt-3 gap-0 hidden" id="home">
+    <main class="row justify-content-center pt-3 gap-0 hidden" id="homeSection">
       <header class="my-5 p-3">
         <div
           class="filters d-flex gap-3 align-items-center justify-content-center"
@@ -56,8 +56,8 @@
       <div class="row justify-content-center gap-3 col-12" id="grid"></div>
     </main>
 
-    <section id="cart" class="pt-5">
-      <div class="container d-flex flex-column">
+    <section id="cartSection" class="hidden">
+      <div class="container d-flex flex-column mt-5">
         <h3 class="text-center">Shopping Cart</h3>
         <div>
           <ul id="cartItems"></ul>
@@ -73,6 +73,19 @@
             Clear Cart
           </button>
         </footer>
+      </div>
+    </section>
+
+    <section id="productSection" class="w-100 hidden">
+      <div class="container row mt-5">
+        <div class="col-6 bg-danger">
+          <img alt="" id="productImg" />
+        </div>
+        <div class="col-6 bg-warning">
+          <img id="productLogo" class="logo" alt="" />
+          <h1 id="productName"></h1>
+          <p id="productPrice"></p>
+        </div>
       </div>
     </section>
 
